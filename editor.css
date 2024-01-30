@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+body {
+    /* margin: 5px; */
+    background-color: #bec4c8;
+    /* background-image: url("./interface/background-greyscale.svg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+.banner {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-direction: row;
+    background-color: #005fa7;
+    background-image: linear-gradient(0deg, #005fa7 5%, #00579e 50%, #005fa7 95%);
+    border-bottom: 5px solid #034076;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+h1 {
+    text-align: center;
+    font-family: 'Sixtyfour', sans-serif;
+    /* font-family: "Helvetica", "Arial", sans-serif; */
+    display: none;
+}
+h2 {
+    /* font-family: "Helvetica", "Arial", sans-serif; */
+    /* display: block; */
+    width: fit-content;
+    font-family: 'Sixtyfour', sans-serif;
+    margin: 0;
+    margin-top: 5px;
+    font-size: 30px;
+    color: white;
+}
+#logo-container {
+    text-align: center;
+}
+#logo-container img {
+    /* width: 100%; */
+    height: 50px;
+}
+#containers, #tools {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#tools {
+    /* align-items: center; */
+    width: 600px;
+    max-width: 90dvw;
+    justify-content: space-around;
+    align-items: center;
+}
+.tool-groups {
+    display: flex; 
+    flex-direction: column;
+}
+#find-and-replace {
+    font-family: Helvetica, Arial, sans-serif;
+}
+#find-and-replace td {
+    font-size: .9em;
+}
+#find-and-replace > div {
+    font-size: .7em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.containers {
+    width: 500px;
+    height: 500px;
+}
+.containers, .buttons {
+    margin: 5px;
+}
+.buttons {
+    /* min-width: 50px;
+    height: 50px; */
+    padding: 10px;
+    /* font: ; */
+    border-radius: 25px;
+    border: 0;
+    color: white;
+    background-color: #0079d6;
+    transition: .2s;
+    /* background-image: linear-gradient(0deg, #005fa7 5%, #00579e 50%, #005fa7 95%); */
+}
+.buttons:hover {
+    background-color: #005fa7;
+    box-shadow: 0 0 10px #49657b;
+    cursor: pointer;
+}
+#share-button {
+    width: 200px;
+    height: 50px;
+}
+#text-editor {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    scrollbar-width: thin;
+    border: 0;
+    padding: 10px;
+}
+#text-editor::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F0F0F0;
+}
+#text-editor::-webkit-scrollbar-thumb {
+    background-color: #CDCDCD;
+}
+#format {
+    display: grid;
+    max-width: 1400px;
+    /* justify-content: center; */
+    /*align-items: center;*/
+    /* flex-wrap: wrap; */
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+@media screen and (max-width: 1100px) {
+    #format {
+        grid-template-columns: auto;
+    }
+    .containers {
+        width: 100%;
+    }
+  }
+#format > table {
+    /* margin: 5px; */
+}
+.page {
+    /* width: 1600px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#markup {
+    /* max-width: 600px; */
+    font-family: "Helvetica", "Arial", sans-serif;
+    background-color: #fafafa;
+}
+#emotes {
+    /* max-width: 600px; */
+    font-family: "Helvetica", "Arial", sans-serif;
+    background-color: #FAFAEB;
+}
+#markup th {
+    background-color: #E5E5E5;
+}
+#emotes th {
+    background-color: #E2E2D7;
+}
+#markup td, #markup th, #emotes td, #emotes th {
+    padding: 0.2em;
+    /*border: 1px solid black*/
+}
+.syntax-type {
+    background-color: #f2f2f2;
+    text-align: center;
+    font-weight: bold;
+}
+.syntax-example {
+    background-color: #f2f2f2;
+    font-family: "Courier New";
+    font-weight: bold;
+}
+#emotes-list td {
+    word-break: break-all;
+    text-align: center;
+}
+.emotes-heading-icon {
+    width: 10%
+}
+.emotes-heading-keyword {
+    width: 23.333%
+}
+.emotes-image {
+    background-color: #EFEFE1;
+}
+p.clean-p {
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+    > a {
+        color: 0079d6
+    }
+}

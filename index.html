@@ -1,0 +1,182 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Screenplay Editor</title>
+        <link rel="stylesheet" href="./viewer/viewer.css">
+        <link rel="stylesheet" href="editor.css">
+    </head>
+    <body>
+        <div class="banner">
+            <div id="logo-container">
+                <img src="./interface/symbol_logo.svg" alt="Logo">
+            </div>
+            <h2>Screenplay Editor</h2>
+        </div>
+        <div class="page">
+            <div id="containers">
+                <div class="containers" id="editor-container">
+                    <textarea id="text-editor" cols="30" rows="10"></textarea>
+                </div>
+
+                <div class="containers" id="viewer-container">
+                    <div id="viewer-box">
+                        <ul id="viewer-lines">
+                            <li>
+                                <u>DANTE</u><br>I'm not even supposed to be here today.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tools">
+                <div class="tool-groups" id="find-and-replace">
+                    <table>
+                        <tr>
+                            <td>Find what:</td>
+                            <td><input type="text" id="find-input"></td>
+                        </tr>
+                        <tr>
+                            <td>Replace with:</td>
+                            <td><input type="text" id="replace-input"></td>
+                        </tr>
+                    </table>
+                    <div>
+                        Match case<input type="checkbox" id="replace-case-toggle">
+                        <button class="buttons" id="replace-button">Replace All</button>
+                        <button class="buttons" id="undo-button">Undo</button>
+                    </div>
+                </div>
+                <div class="tool-groups">
+                    <button class="buttons" id="uppercase-button">a->A</button>
+                    <button class="buttons" id="lowercase-button">A->a</button>
+                </div>
+                <button class="buttons" id="share-button">Share script</button>
+            </div>
+
+            <div id="format">
+                <table id="markup">
+                    <thead>
+                        <tr>
+                            <th colspan="3">Syntax</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3" style="text-align:center;">Leave an empty line between each block. <a href="./interface/example-script.txt">(Example)</a></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th style="width:20%">Type</th>
+                            <th style="width:40%">Method</th>
+                            <th style="width:40%">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="syntax-type">Scene Heading (Room/Location)</td>
+                            <td>Begin with <b>INT</b> (interior) or <b>EXT</b> (exterior). Type in <b>FULL CAPITALS</b>. Force a Scene Heading by starting with a full stop.</td>
+                            <td class="syntax-example">EXT. THEATRE</td>
+                        </tr>
+                        <tr>
+                            <td class="syntax-type">Transition (Scene change/opening indication)</td>
+                            <td>Type <b>FADE IN:</b> or <b>CUT TO:</b> in <b>FULL CAPITALS</b>.</td>
+                            <td class="syntax-example">CUT TO:</td>
+                        </tr>
+                        <tr>
+                            <td class="syntax-type">Emoticon</td>
+                            <td>Begin with character name in <b>FULL CAPITALS</b>, then emoticon keyword (see table) and the word 'emote' or 'face' inside two asterisks.</td>
+                            <td class="syntax-example">GEORGE ⏎<br>*indifferent face*</td>
+                        </tr>
+                        <tr>
+                            <td class="syntax-type">Title & Credit</td>
+                            <td>Use <b>FULL CAPITALS</b> for the title, then 'by' and your name/pseudonym.</td>
+                            <td class="syntax-example">SUNRISE ⏎<br>by Carl Mayer</td>
+                        </tr>
+                        <tr>
+                            <td class="syntax-type">Dialogue Piece (Lines/Messages)</td>
+                            <td>Begin with character name in <b>FULL CAPITALS</b>, then lines of dialogue.<br>Dialogue can be broken up into separate messages with a single line break. Break up the dialogue if it's many words/sentences long.</td>
+                            <td class="syntax-example">MARY ⏎<br>Come on in here now. ⏎<br>Now, you stand right over here, by the tree.</td>
+                        </tr>
+                        <tr>
+                            <td class="syntax-type">Action Piece (Description of an event)</td>
+                            <td>Just type!</td>
+                            <td class="syntax-example">GEORGE and MARY embrace tearfully.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table id="emotes">
+                    <thead>
+                        <tr>
+                            <th colspan="6">Emotes</th>
+                        </tr>
+                        <tr>
+                            <th class="emotes-heading-icon">Icon</th>
+                            <th class="emotes-heading-keyword">Keyword</th>
+                            <th class="emotes-heading-icon">Icon</th>
+                            <th class="emotes-heading-keyword">Keyword</th>
+                            <th class="emotes-heading-icon">Icon</th>
+                            <th class="emotes-heading-keyword">Keyword</th>
+                        </tr>
+                    </thead>
+                    <tbody id="emotes-list">
+                        <tr>
+                            <td class="emotes-image"><img src="./emotes/laughing.svg"></td><td>laughing</td>
+                            <td class="emotes-image"><img src="./emotes/light_bulb.svg"></td><td>light_bulb</td>
+                            <td class="emotes-image"><img src="./emotes/moon.svg"></td><td>moon</td>
+                        </tr>
+                        <tr>
+                            <td class="emotes-image"><img src="./emotes/happy.svg"></td><td>happy</td>
+                            <td class="emotes-image"><img src="./emotes/coffee.svg"></td><td>coffee</td>
+                            <td class="emotes-image"><img src="./emotes/popcorn.svg"></td><td>popcorn</td>
+                        </tr>
+                        <tr>
+                            <td class="emotes-image"><img src="./emotes/indifferent.svg"></td><td>indifferent</td>
+                            <td class="emotes-image"><img src="./emotes/sun.svg"></td><td>sun</td>
+                            <td class="emotes-image"><img src="./emotes/pet.svg"></td><td>pet</td>
+                        </tr>
+                        <tr>
+                            <td class="emotes-image"><img src="./emotes/sad.svg"></td><td>sad</td>
+                            <td class="emotes-image"><img src="./emotes/flower.svg"></td><td>flower</td>
+                            <td class="emotes-image"><img src="./emotes/cone.svg"></td><td>cone</td>
+                        </tr>
+                        <tr>
+                            <td class="emotes-image"><img src="./emotes/surprised.svg"></td><td>surprised</td>
+                            <td class="emotes-image"><img src="./emotes/game.svg"></td><td>game</td>
+                            <td class="emotes-image"><img src="./emotes/toot.svg"></td><td>toot</td>
+                        </tr>
+                        <tr>
+                            <td class="emotes-image"><img src="./emotes/tongue.svg"></td><td>tongue</td>
+                            <td class="emotes-image"><img src="./emotes/heart.svg"></td><td>heart</td>
+                            <td class="emotes-image"><img src="./emotes/meh.svg"></td><td>meh</td>
+                        </tr>
+                        <tr>
+                            <td class="emotes-image"><img src="./emotes/winking.svg"></td><td>winking</td>
+                            <td class="emotes-image"><img src="./emotes/ice.svg"></td><td>ice</td>
+                            <td class="emotes-image"><img src="./emotes/ice_cream.svg"></td><td>ice_cream</td>
+                        </tr>
+                        <tr>
+                            <td class="emotes-image"><img src="./emotes/sick.svg"></td><td>sick</td>
+                            <td class="emotes-image"><img src="./emotes/cake.svg"></td><td>cake</td>
+                            <td class="emotes-image"><img src="./emotes/pizza.svg"></td><td>pizza</td>
+                        </tr>
+                        <tr>
+                            <td class="emotes-image"><img src="./emotes/mad.svg"></td><td>mad</td>
+                            <td class="emotes-image"><img src="./emotes/shamrock.svg"></td><td>shamrock</td>
+                            <td class="emotes-image"><img src="./emotes/exclamation.svg"></td><td>exclamation</td>
+                        </tr>
+                        <tr>
+                            <td class="emotes-image"><img src="./emotes/upset.svg"></td><td>upset</td>
+                            <td class="emotes-image"><img src="./emotes/coin.svg"></td><td>coin</td>
+                            <td class="emotes-image"><img src="./emotes/question.svg"></td><td>question</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="clean-p">Emojis from <a href="https://twemoji.twitter.com/">Twemoji</a></p>
+        </div>
+        <script type="module" src="main.js"></script>
+    </body>
+</html>
